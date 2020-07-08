@@ -9,6 +9,8 @@ Hickey found that there's a significant discrepancy between the number of stars 
 
 * For one movie rating, the rounding off was completely bizarre: from a rating of 4 in the HTML of the page to a displayed rating of 5 stars.
 
+![image info](./s1gp_actual_vs_displayed.png)
+
 Walt Hickey made the data he analyzed publicly available on GitHub. We'll use the data he collected to analyze the characteristics of Fandango's rating system previous to his analysis. (https://github.com/fivethirtyeight/data/tree/master/fandango)
 
 ### Goal
