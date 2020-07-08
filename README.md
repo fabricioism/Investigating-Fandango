@@ -1,4 +1,4 @@
-# Investigating Fandango Movie Ratings
+# Investigating Fandango: Irregularities in online movie ratings
 In this project we will analyze more recent movie ratings data whether there has been any change in Fandango's rating system after Walt Hickey's analysis (https://fivethirtyeight.com/features/fandango-movies-ratings/).
 
 Hickey found that there's a significant discrepancy between the number of stars displayed to users and the actual rating, which he was able to find in the HTML of the page. He was able to find that:
