@@ -1,0 +1,101 @@
+---
+title: "Investigating Fandango: Irregularities in online movie ratings"
+author: "Fabricio Ismael Murillo"
+date: "July, 2020"
+output: html_notebook
+---
+
+### Motivation
+Many times when we want to see a movie we take into account the opinion of others to choose it. We trust the majority opinion because we believe that it is honest. What if this has been biased?
+
+In 2015, an [article](https://fivethirtyeight.com/features/fandango-movies-ratings/) was published by the researcher Walt Hickey from FiveThirtyEight. This work exposed how Fandango's scores present certain irregularities such as manipulating the behavior of users when choosing a movie. We'll analyze more recent movie ratings data to determine whether there has been any change in Fandango's rating system after Hickey's analysis.
+
+### Necessary packages
+```{r}
+library(readr)
+library(dplyr)
+```
+
+### Data
+We will work with two files, one of them corresponding to Wickley's previous work and the next one with Fandango data collected after the article was published.
+
+* Before publication: [Github](https://github.com/fivethirtyeight/data/tree/master/fandango)
+* After publication: [Github](https://github.com/mircealex/Movie_ratings_2016_17)
+
+```{r}
+previous <- read_csv("fandango_score_comparison.csv") #Previous publication
+after <- read_csv("movie_ratings_16_17.csv") # After publication
+```
+
+```{r}
+head(previous)
+```
+
+```{r}
+head(after)
+```
+
+We will select some columns of the dataframes for our work. 
+* previous: 'FILM', 'Fandango_Stars', 'Fandango_Ratingvalue', 'Fandango_votes', 'Fandango_Difference'
+* after: 'movie', 'year', 'fandango'
+
+```{r}
+fandango_previous <- previous %>% select('FILM', 'Fandango_Stars', 'Fandango_Ratingvalue', 'Fandango_votes', 'Fandango_Difference')
+
+fandango_after <- after %>% select('movie', 'year', 'fandango')
+```
+
+```{r}
+head(fandango_previous)
+```
+
+```{r}
+head(fandango_after)
+```
+
+We want to know whether there has been any changes in Fandango, given the Hickey's analysis that 
+
+The population of interest for our analysis is made of all the movie ratings stored on Fandango's website, regardless of the releasing year.
+
+Because we want to find out whether the parameters of this population changed after Hickey's analysis, we're interested in sampling the population at two different periods in time — previous and after Hickey's analysis — so we can compare the two states.
+
+The data we're working with was sampled at the moments we want: one sample was taken previous to the analysis, and the other after the analysis. We want to describe the population, so we need to make sure that the samples are representative, otherwise we should expect a large sampling error and, ultimately, wrong conclusions.
+
+From Hickey's article and from the README.md of [data set's repository](https://github.com/fivethirtyeight/data/tree/master/fandango), we can see that he used the following sampling criteria:
+
+* The movie must have had at least 30 fan ratings on Fandango's website at the time of sampling (Aug. 24, 2015).
+* The movie must have had tickets on sale in 2015.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
